@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Prompt from './Prompt.js';
 
 const areas = [
     {
@@ -73,8 +74,6 @@ function Answer({id, value}) {
 
 export default function Map(){
 
-    const ids = [0,1,2,3,4,5,6,7,8];
-
     const initialState = [
         {id : 0, value: 0, color: '' },
         {id : 1, value: 0, color: '' },
@@ -88,8 +87,14 @@ export default function Map(){
       ];
     
     const [answers, setAnswer] = useState(initialState);
+    const [modalFormOpen, setModalFormOpen] = useState(false);
     
     const clic = (id) => {
+
+        setModalFormOpen(true);
+
+        /** Call the plugin */
+        
         // 1. Make a shallow copy of the array
         let temp_answer = [...answers];
         
@@ -104,16 +109,21 @@ export default function Map(){
         
         // 5. Set the state to our new copy
         setAnswer( temp_answer );
+   
     }
 
     return(
-        <map name="gamemap">
-            {answers.map((answer) => 
-                <div key={answer.id}>
-                    <Area key={"area_"+answer.id} id={answer.id} onClick={clic}/>   
-                    <Answer key={"answer_"+answer.id} id={answer.id} value={answer.value}/>   
-                </div>
-            )}  
-        </map>
+        <div>
+            <map name="gamemap">
+                {answers.map((answer) => 
+                    <div key={answer.id}>
+                        <Area key={"area_"+answer.id} id={answer.id} onClick={clic} />   
+                        <Answer key={"answer_"+answer.id} id={answer.id} value={answer.value}/>   
+                    </div>
+                )}  
+                
+            </map>
+            <Prompt modalFormOpen={modalFormOpen} setModalFormOpen={setModalFormOpen} />
+        </div>
     );
 }

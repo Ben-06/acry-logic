@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Map from '/comps/Map.js'
 
 import Image from 'next/image'
-import gameImg from '/public/levels/2.png'
+import gameImg from '/public/levels/1.jpg'
 
 const Game = () => {
 
@@ -10,8 +10,8 @@ const Game = () => {
   const { gid } = router.query
 
   const divStyle = {
-    width :'700px',
-    height:'600px',
+    width :'658px',
+    height:'900px',
     position:"relative"
   };
 
