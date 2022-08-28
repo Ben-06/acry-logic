@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AnswerPrompt from './AnswerPrompt';
 
+
 const areas = [
     {
         "id" : 1,
