@@ -14,6 +14,9 @@ export default function HomePage() {
         <Link href="/games/2">
             <a>Go to games/2.js</a>
         </Link>
+        <Link href="/games/test">
+            <a>Go to games/test.js</a>
+        </Link>
       </div>
 
     </div>
