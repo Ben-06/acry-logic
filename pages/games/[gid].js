@@ -17,13 +17,11 @@ const Game = () => {
 
   return (
     <div>
-        <p>Game: {gid}</p>
         <div style={divStyle}>      
           <Image
             src={gameImg}
             alt="Acry Logic"
             layout={"fill"} 
-            useMap="#gamemap"
           />   
           <Map/>
         </div>
